@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const element = document.querySelector(selector);
 
             if (element) {
-                const value = element.innerText || element.textContent;
-
+                const value = element.innerText.replace(/\u00a0/g, ' ').trim();
                 // Send the value via AJAX
                 fetch(pcbOptions.ajaxUrl + '?action=pcb_output_pix', {
                     method: 'POST',

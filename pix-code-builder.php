@@ -44,9 +44,11 @@ function pcb_calculaCRC16($dados) {
 
 function pcb_geraPix($chave, $idTx = '', $valor = 0.00) {
     // Convert BRL format to a float
+    $valor = str_replace('R$', '', $valor); // Remove BRL symbol
     $valor = str_replace('.', '', $valor); // Remove the thousands separator
     $valor = str_replace(',', '.', $valor); // Replace the decimal separator
     $valor = floatval($valor);
+    //die($valor);
     $resultado = "000201";
     $resultado .= pcb_formataCampo("26", "0014br.gov.bcb.pix" . pcb_formataCampo("01", $chave));
     $resultado .= "52040000"; // Código fixo

@@ -24,15 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         parent.removeChild(button);
                                                 
                         if(data.codigoPix){
-                            if (navigator.clipboard && navigator.clipboard.writeText) {
-                                navigator.clipboard.writeText(data.codigoPix)
-                                    .then(() => {
-                                        alert('Código Pix copiado para área de transferência! Continue o pagamento no app do seu banco');
-                                    })
-                                    .catch((err) => {
-                                        console.error('Failed to copy text: ', err);
-                                    });
-                            }
+                            
                             const p = document.createElement('p');
                             p.innerText = "Use O QR code abaixo ou copie o código Pix para o seu aplicativo bancário.";
                             parent.appendChild(p);
@@ -45,6 +37,15 @@ document.addEventListener('DOMContentLoaded', function () {
                             const img = document.createElement('img');
                             img.src = data.qr_code_img_src;
                             parent.appendChild(img);
+                        }
+                        if (navigator.clipboard && navigator.clipboard.writeText) {
+                            navigator.clipboard.writeText(data.codigoPix)
+                                .then(() => {
+                                    alert('Código Pix copiado para área de transferência! Continue o pagamento no app do seu banco');
+                                })
+                                .catch((err) => {
+                                    console.error('Failed to copy text: ', err);
+                                });
                         }
                     })
                     .catch((error) => console.error('Error:', error));

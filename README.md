@@ -4,7 +4,7 @@ Wordpress plugin for pix chekout bypass from given pix key and value
 - Customize button text
 
 ## Wordpress plugin configuration page
-![pix-code-builder-php plugin configuration page](https://github.com/m2utilities/pix-code-builder-php/blob/main/config-page.png)
+![pix-code-builder-php plugin configuration page](https://raw.githubusercontent.com/marciofao/pix-code-builder-php/refs/heads/main/config-page.png)
 
 Based on the code originally from:
 [https://www.mco2.com.br/artigos/aprenda-como-gerar-qr-code-e-codigo-pix-em-php.html](https://www.mco2.com.br/artigos/aprenda-como-gerar-qr-code-e-codigo-pix-em-php.html)

@@ -31,22 +31,24 @@ document.addEventListener('DOMContentLoaded', function () {
                             const p2 = document.createElement('p');
                             p2.innerText = data.codigoPix
                             parent.appendChild(p2);
-                        }
-                        if (data.qr_code_img_src) {
+
+                            if (data.qr_code_img_src) {
                             
-                            const img = document.createElement('img');
-                            img.src = data.qr_code_img_src;
-                            parent.appendChild(img);
+                                const img = document.createElement('img');
+                                img.src = data.qr_code_img_src;
+                                parent.appendChild(img);
+                            }
+                            if (navigator.clipboard && navigator.clipboard.writeText) {
+                                navigator.clipboard.writeText(data.codigoPix)
+                                    .then(() => {
+                                        alert('Código Pix copiado para área de transferência! Continue o pagamento no app do seu banco');
+                                    })
+                                    .catch((err) => {
+                                        console.error('Failed to copy text: ', err);
+                                    });
+                            }
                         }
-                        if (navigator.clipboard && navigator.clipboard.writeText) {
-                            navigator.clipboard.writeText(data.codigoPix)
-                                .then(() => {
-                                    alert('Código Pix copiado para área de transferência! Continue o pagamento no app do seu banco');
-                                })
-                                .catch((err) => {
-                                    console.error('Failed to copy text: ', err);
-                                });
-                        }
+                        
                     })
                     .catch((error) => console.error('Error:', error));
             } else {
